@@ -14,7 +14,7 @@ package ShapeDomain;
  *          Class Description: This class represents a Prism and their
  *          associated attributes.
  */
-public abstract class Prism extends Shape {
+public class Prism extends Shape {
 
     // Attributes
     private double edge;
@@ -68,7 +68,9 @@ public abstract class Prism extends Shape {
      * @see shapeDomain.Shape#calcBaseArea()
      */
     @Override
-    public abstract double calcBaseArea();
+    public double calcBaseArea(){
+        return 0;
+    };
 
     /*
      * (non-Javadoc)
@@ -76,70 +78,8 @@ public abstract class Prism extends Shape {
      * @see shapeDomain.Shape#calcVolume()
      */
     @Override
-    public abstract double calcVolume();
-
-    // Subclasses for specific Prism types
-    public static class SquarePrism extends Prism {
-        public SquarePrism(double height, double edge) {
-            super(height, edge);
-        }
-
-        @Override
-        public double calcBaseArea() {
-            return Math.pow(getEdge(), 2);
-        }
-
-        @Override
-        public double calcVolume() {
-            return Math.pow(getEdge(), 2) * getHeight();
-        }
-    }
-
-    public static class TriangularPrism extends Prism {
-        public TriangularPrism(double height, double edge) {
-            super(height, edge);
-        }
-
-        @Override
-        public double calcBaseArea() {
-            return Math.pow(getEdge(), 2) * Math.sqrt(3) / 4;
-        }
-
-        @Override
-        public double calcVolume() {
-            return calcBaseArea() * getHeight();
-        }
-    }
-
-    public static class PentagonalPrism extends Prism {
-        public PentagonalPrism(double height, double edge) {
-            super(height, edge);
-        }
-
-        @Override
-        public double calcBaseArea() {
-            return 5 * Math.pow(getEdge(), 2) * Math.tan(Math.toRadians(54)) / 4;
-        }
-
-        @Override
-        public double calcVolume() {
-            return calcBaseArea() * getHeight();
-        }
-    }
-
-    public static class OctagonalPrism extends Prism {
-        public OctagonalPrism(double height, double edge) {
-            super(height, edge);
-        }
-
-        @Override
-        public double calcBaseArea() {
-            return 2 * (1 + Math.sqrt(2)) * Math.pow(getEdge(), 2);
-        }
-
-        @Override
-        public double calcVolume() {
-            return calcBaseArea() * getHeight();
-        }
-    }
+    public double calcVolume(){
+        return 0;
+    };
+    
 }

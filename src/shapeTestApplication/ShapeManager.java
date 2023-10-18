@@ -64,7 +64,7 @@ public class ShapeManager {
     private void fillShapeList() {
         String className = "";
         try {
-            BufferedReader fin = new BufferedReader(new FileReader("cprg304-Assignment01-TeamRiju/res/test.txt"));
+            BufferedReader fin = new BufferedReader(new FileReader("res\\test.txt"));
             String line = fin.readLine();
 
             StringTokenizer st = new StringTokenizer(line, " ");
@@ -75,23 +75,12 @@ public class ShapeManager {
 
             while (st.hasMoreTokens()) {
                 String shapeToken = st.nextToken();
-
-                if (shapeToken.equals("TriangularPrism")) {
-                    className = "ShapeDomain.Prism$" + shapeToken;
-                } else if (shapeToken.equals("SquarePrism")) {
-                    className = "ShapeDomain.Prism$" + shapeToken;
-                } else if (shapeToken.equals("PentagonalPrism")) {
-                    className = "ShapeDomain.Prism$" + shapeToken;
-                } else if (shapeToken.equals("OctagonalPrism")) {
-                    className = "ShapeDomain.Prism$" + shapeToken;
-                } else {
-                    className = "ShapeDomain." + shapeToken; // For other shapes
-                }
+                
+                className = "ShapeDomain." + shapeToken;
 
                 Class cls = Class.forName(className);
 
-                if (className.compareTo("ShapeDomain.Cone") == 0) {
-                    Class paramTypes[] = new Class[2];
+                Class paramTypes[] = new Class[2];
                     paramTypes[0] = Double.TYPE;
                     paramTypes[1] = Double.TYPE;
 
@@ -104,99 +93,6 @@ public class ShapeManager {
                     Object o = ct.newInstance(argList);
                     shapeList[shapeIndex] = (Shape) o;
                     shapeIndex++;
-                } else if (className.compareTo("ShapeDomain.Cylinder") == 0) {
-                    Class paramTypes[] = new Class[2];
-                    paramTypes[0] = Double.TYPE;
-                    paramTypes[1] = Double.TYPE;
-
-                    Constructor ct = cls.getConstructor(paramTypes);
-
-                    Object argList[] = new Object[2];
-                    argList[0] = new Double(Double.parseDouble(st.nextToken()));
-                    argList[1] = new Double(Double.parseDouble(st.nextToken()));
-
-                    Object o = ct.newInstance(argList);
-                    shapeList[shapeIndex] = (Shape) o;
-                    shapeIndex++;
-                } else if (className.compareTo("ShapeDomain.Pyramid") == 0) {
-                    Class paramTypes[] = new Class[2];
-                    paramTypes[0] = Double.TYPE;
-                    paramTypes[1] = Double.TYPE;
-
-                    Constructor ct = cls.getConstructor(paramTypes);
-
-                    Object argList[] = new Object[2];
-                    argList[0] = new Double(Double.parseDouble(st.nextToken()));
-                    argList[1] = new Double(Double.parseDouble(st.nextToken()));
-
-                    Object o = ct.newInstance(argList);
-                    shapeList[shapeIndex] = (Shape) o;
-                    shapeIndex++;
-                }
-
-                else if (className.compareTo("ShapeDomain.Prism$TriangularPrism") == 0) {
-                    Class paramTypes[] = new Class[2];
-                    paramTypes[0] = Double.TYPE;
-                    paramTypes[1] = Double.TYPE;
-
-                    Constructor ct = cls.getConstructor(paramTypes);
-
-                    Object argList[] = new Object[2];
-                    argList[0] = new Double(Double.parseDouble(st.nextToken()));
-                    argList[1] = new Double(Double.parseDouble(st.nextToken()));
-
-                    Object o = ct.newInstance(argList);
-                    shapeList[shapeIndex] = (Shape) o;
-                    shapeIndex++;
-                }
-
-                else if (className.compareTo("ShapeDomain.Prism$SquarePrism") == 0) {
-                    Class paramTypes[] = new Class[2];
-                    paramTypes[0] = Double.TYPE;
-                    paramTypes[1] = Double.TYPE;
-
-                    Constructor ct = cls.getConstructor(paramTypes);
-
-                    Object argList[] = new Object[2];
-                    argList[0] = new Double(Double.parseDouble(st.nextToken()));
-                    argList[1] = new Double(Double.parseDouble(st.nextToken()));
-
-                    Object o = ct.newInstance(argList);
-                    shapeList[shapeIndex] = (Shape) o;
-                    shapeIndex++;
-                }
-
-                else if (className.compareTo("ShapeDomain.Prism$PentagonalPrism") == 0) {
-                    Class paramTypes[] = new Class[2];
-                    paramTypes[0] = Double.TYPE;
-                    paramTypes[1] = Double.TYPE;
-
-                    Constructor ct = cls.getConstructor(paramTypes);
-
-                    Object argList[] = new Object[2];
-                    argList[0] = new Double(Double.parseDouble(st.nextToken()));
-                    argList[1] = new Double(Double.parseDouble(st.nextToken()));
-
-                    Object o = ct.newInstance(argList);
-                    shapeList[shapeIndex] = (Shape) o;
-                    shapeIndex++;
-                }
-
-                else if (className.compareTo("ShapeDomain.Prism$OctagonalPrism") == 0) {
-                    Class paramTypes[] = new Class[2];
-                    paramTypes[0] = Double.TYPE;
-                    paramTypes[1] = Double.TYPE;
-
-                    Constructor ct = cls.getConstructor(paramTypes);
-
-                    Object argList[] = new Object[2];
-                    argList[0] = new Double(Double.parseDouble(st.nextToken()));
-                    argList[1] = new Double(Double.parseDouble(st.nextToken()));
-
-                    Object o = ct.newInstance(argList);
-                    shapeList[shapeIndex] = (Shape) o;
-                    shapeIndex++;
-                }
 
             }
 

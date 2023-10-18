@@ -82,4 +82,9 @@ public class Cone extends Shape {
         return (Math.PI * Math.pow(radius, 2) * getHeight()) / 3;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%15s height = %15.2f radius = %10.2f Base area = %30.2f Volume = %30.2f", this.getClass().getSimpleName(), getHeight(), radius, calcBaseArea(), calcVolume());
+        
+    }
 }
