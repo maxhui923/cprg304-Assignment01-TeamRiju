@@ -8,11 +8,10 @@ package ShapeDomain;
 /**
  * Cone.java
  *
+ * Cone is a class that represents a cone shape and its associated attributes.
+ *
  * @author TeamRiju
  * @version 1.0
- *
- *          Class Description: This class represents a Cone and their
- *          associated attributes.
  */
 public class Cone extends Shape {
 
@@ -21,22 +20,17 @@ public class Cone extends Shape {
 
     // Constructors
     /**
-     * Initializes an empty Cone object with default values for all
-     * attributes.
+     * Initializes an empty Cone object with default values for all attributes.
      */
-
     public Cone() {
     }
 
     /**
-     * User defined constructor to initialize
-     * all class level attributes.
+     * User-defined constructor to initialize all class-level attributes.
      * 
-     * @param type   shape's type
-     * @param height shape's height
-     * @param radius cone's radius
+     * @param height The shape's height.
+     * @param radius The cone's radius.
      */
-
     public Cone(double height, double radius) {
         super(height);
         this.radius = radius;
@@ -44,18 +38,18 @@ public class Cone extends Shape {
 
     // Getters and Setters
     /**
-     * Method to return the value of radius
+     * Method to return the value of radius.
      * 
-     * @return the radius
+     * @return The radius.
      */
     public double getRadius() {
         return radius;
     }
 
     /**
-     * Method to set the value of radius
+     * Method to set the value of radius.
      * 
-     * @param radius the radius to set
+     * @param radius The radius to set.
      */
     public void setRadius(double radius) {
         this.radius = radius;
@@ -84,7 +78,7 @@ public class Cone extends Shape {
 
     @Override
     public String toString() {
-        return String.format("%s\nHeight= %.2f\nRadius = %.2f\nBase area = %.2f\nVolume = %.2f", this.getClass().getSimpleName(), getHeight(), radius, calcBaseArea(), calcVolume());
-        
+        return String.format("%s\nHeight= %.2f\nRadius = %.2f\nBase area = %.2f\nVolume = %.2f",
+                this.getClass().getSimpleName(), getHeight(), radius, calcBaseArea(), calcVolume());
     }
 }

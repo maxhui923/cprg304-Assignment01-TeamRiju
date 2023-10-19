@@ -5,21 +5,37 @@
  */
 
 package utilities;
+
+import java.util.Comparator;
+
 /**
  * SelectionSort.java
  *
  * @author TeamRiju
  * @version 1.0
  *
- * Class Description: This class sorts the shape list using Selection sort
+ *          Class Description: This class provides an implementation of the
+ *          selection sort algorithm for sorting an array of elements.
  */
-import java.util.Comparator;
-
 public class SelectionSort<T extends Comparable<T>> {
+    /**
+     * Sorts an array of elements using the selection sort algorithm in descending
+     * order.
+     *
+     * @param list The array of elements to be sorted.
+     */
     public void selectionSort(T[] list) {
         selectionSort(list, null);
     }
 
+    /**
+     * Sorts an array of elements using the selection sort algorithm in descending
+     * order, considering a custom comparator.
+     *
+     * @param list       The array of elements to be sorted.
+     * @param comparator A comparator to determine the order of elements. If null,
+     *                   natural ordering is used.
+     */
     public void selectionSort(T[] list, Comparator<T> comparator) {
         int n = list.length;
         T temp;

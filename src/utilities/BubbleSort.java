@@ -6,22 +6,37 @@
 
 package utilities;
 
+import java.util.Comparator;
+
 /**
  * BubbleSort.java
  *
  * @author TeamRiju
  * @version 1.0
  *
- * Class Description: This class sorts the shape list using bubble sort
+ *          Class Description: This class provides an implementation of the
+ *          bubble sort algorithm for sorting an array of elements.
  */
-import java.util.Comparator;
-
 public class BubbleSort<T extends Comparable<T>> {
 
+    /**
+     * Sorts an array of elements using the bubble sort algorithm in descending
+     * order.
+     *
+     * @param list The array of elements to be sorted.
+     */
     public void bubbleSort(T[] list) {
         bubbleSort(list, null);
     }
 
+    /**
+     * Sorts an array of elements using the bubble sort algorithm in descending
+     * order, considering a custom comparator.
+     *
+     * @param list       The array of elements to be sorted.
+     * @param comparator A comparator to determine the order of elements. If null,
+     *                   natural ordering is used.
+     */
     public void bubbleSort(T[] list, Comparator<T> comparator) {
         int n = list.length;
         T temp;
