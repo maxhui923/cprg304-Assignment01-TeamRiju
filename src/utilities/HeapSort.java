@@ -18,7 +18,7 @@ import java.util.Comparator;
 
 public class HeapSort <T extends Comparable<T>>{
 
-    public void HeapSort(T[] list) {
+    public void heapSort(T[] list) {
         int n = list.length;
  
         // Build heap (rearrange array)
@@ -37,7 +37,7 @@ public class HeapSort <T extends Comparable<T>>{
         }
     }
 
-    public void HeapSort(T[] list, Comparator<T> comparator) {
+    public void heapSort(T[] list, Comparator<T> comparator) {
         int n = list.length;
  
         // Build heap (rearrange array)

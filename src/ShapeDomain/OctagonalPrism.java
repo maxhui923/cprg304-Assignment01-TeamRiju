@@ -17,7 +17,7 @@ public class OctagonalPrism extends Prism {
 
     @Override
     public String toString() {
-        return String.format("%15s height = %15.2f edge   = %10.2f Base area = %30.2f Volume = %30.2f",
+        return String.format("%s\nHeight = %.2f\nEdge = %.2f\nBase area = %.2f\nVolume = %.2f",
                 this.getClass().getSimpleName(), getHeight(), getEdge(), calcBaseArea(), calcVolume());
 
     }

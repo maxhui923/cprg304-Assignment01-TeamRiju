@@ -33,7 +33,7 @@ public class ShapeManager {
      * attributes.
      */
     public ShapeManager() {
-        fillShapeList();
+//        fillShapeList();
     }
 
     // Operational Methods
@@ -61,10 +61,10 @@ public class ShapeManager {
         return shapeList;
     }
 
-    private void fillShapeList() {
+    public void fillShapeList(String filepath) {
         String className = "";
         try {
-            BufferedReader fin = new BufferedReader(new FileReader("res\\test.txt"));
+            BufferedReader fin = new BufferedReader(new FileReader(filepath));
             String line = fin.readLine();
 
             StringTokenizer st = new StringTokenizer(line, " ");
@@ -78,13 +78,13 @@ public class ShapeManager {
                 
                 className = "ShapeDomain." + shapeToken;
 
-                Class cls = Class.forName(className);
+                Class<?> cls = Class.forName(className);
 
-                Class paramTypes[] = new Class[2];
+                Class<?> paramTypes[] = new Class[2];
                     paramTypes[0] = Double.TYPE;
                     paramTypes[1] = Double.TYPE;
 
-                    Constructor ct = cls.getConstructor(paramTypes);
+                    Constructor<?> ct = cls.getConstructor(paramTypes);
 
                     Object argList[] = new Object[2];
                     argList[0] = new Double(Double.parseDouble(st.nextToken()));
