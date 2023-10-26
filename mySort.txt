@@ -1,0 +1,58 @@
+﻿mySort.txt
+
+Heap Sort Algorithm - TeamRiju
+My Sort
+Date: October 19, 2023
+
+A) Description
+
+Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest/smallest element and moving that to the sorted region. The improvement from selection sort is that, rather than doing a linear-time scan of the list to find the maximum element, it uses a heap to find the maximum element in logarithmic time.
+
+
+B) Pseudocode
+
+HEAP_SORT(A)
+    BUILD_MAX_HEAP(A)
+    for i from length(A) down to 2
+        SWAP A[1] with A[i]
+        HEAP_SIZE = HEAP_SIZE - 1
+        MAX_HEAPIFY(A, 1)
+
+BUILD_MAX_HEAP(A)
+    HEAP_SIZE = length(A)
+    for i from floor(length(A)/2) down to 1
+        MAX_HEAPIFY(A, i)
+
+MAX_HEAPIFY(A, i)
+    left = 2*i
+    right = 2*i + 1
+    if left <= HEAP_SIZE and A[left] > A[i]
+        largest = left
+    else
+        largest = i
+    if right <= HEAP_SIZE and A[right] > A[largest]
+        largest = right
+    if largest != i
+        SWAP A[i] with A[largest]
+        MAX_HEAPIFY(A, largest)
+
+
+C) Complexity Analysis
+
+Time Complexity:
+* Best Case:  O (n log n)
+* Average Case:  O (n log n)
+* Worst Case:  O (n log n)
+The time complexity remains  O (n log n) across all cases due to the nature of the binary heap structure and the process of heapification.
+
+Space Complexity: O(1)
+
+The Heap Sort algorithm sorts in place, so it doesn't require any extra storage other than what's needed to hold the initial list.
+
+
+D) Operational Steps
+
+* BUILD_MAX_HEAP: Convert the input array into a max-heap – a binary tree where the main parent node has a value greater than its children.
+* SWAP: The root (maximum value) of the heap with the last element of the heap.
+* REDUCE: The size of the heap by 1 and heapify the root again.
+* REPEAT: The process until the size of the heap is 1.
